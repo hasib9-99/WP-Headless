@@ -11,6 +11,7 @@
   --color-bg-secondary: #ece8e11a;
   --color-text: #ece8e1;
   --color-card: #1f2326;
+  --color-border: #2b333b;
 
   /* Fonts */
   --font-primary: var(--font-teko);
@@ -19,5 +20,8 @@
 @layer{
   .container{
     @apply mx-auto
+  }
+  .section_title{
+    @apply font-primary text-white font-semibold text-3xl
   }
 }

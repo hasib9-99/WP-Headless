@@ -33,3 +33,15 @@ export async function getPost(slug: string) {
 
   return data.length > 0 ? data[0] : null;
 }
+
+export async function getSkills() {
+  const res = await fetch(
+    `${API_URL}/skill`,
+    {
+      next: {
+        revalidate: 60,
+      }
+    }
+  );
+  return res.json()
+}
