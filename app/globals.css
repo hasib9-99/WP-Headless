@@ -1,27 +1,159 @@
 @import "tailwindcss";
 
 @theme {
-  /* Custom container */
-  --container-width: 1200px;
+  --color-background: #0e141b;
+  --color-foreground: #ece8e1;
 
-  /* Colors */
-  --color-primary: #ff4655;
-  --color-secondary: #e5e7eb;
-  --color-bg-primary: #0f1923;
-  --color-bg-secondary: #ece8e11a;
-  --color-text: #ece8e1;
-  --color-card: #1f2326;
-  --color-border: #2b333b;
+  --color-card: #151c23;
+  --color-card-foreground: #ece8e1;
+
+  --color-popover: #151c23;
+  --color-popover-foreground: #ece8e1;
+
+  --color-primary: #ff3347;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #252f37;
+  --color-secondary-foreground: #ece8e1;
+
+  --color-muted: #1e262e;
+  --color-muted-foreground: #7f8a97;
+
+  --color-accent: #00d5ff;
+  --color-accent-foreground: #0e141b;
+
+  --color-destructive: #7f1d1d;
+  --color-destructive-foreground: #f8fafc;
+
+  --color-border: #2b323b;
+  --color-input: #1e262e;
+  --color-ring: #ff3347;
+
+  /* Valorant */
+  --color-val-dark: #0e141b;
+  --color-val-charcoal: #1f2529;
+  --color-val-grey: #ece8e1;
+  --color-val-red: #ff3347;
+  --color-val-cyan: #00d5ff;
+
+  /* Sidebar */
+  --color-sidebar-background: #151c23;
+  --color-sidebar-foreground: #ece8e1;
+
+  --color-sidebar-primary: #ff3347;
+  --color-sidebar-primary-foreground: #ffffff;
+
+  --color-sidebar-accent: #252f37;
+  --color-sidebar-accent-foreground: #ece8e1;
+
+  --color-sidebar-border: #2b323b;
+  --color-sidebar-ring: #ff3347;
+
+  /* Radius */
+  --radius: 0rem;
 
   /* Fonts */
   --font-primary: var(--font-teko);
   --font-secondary: var(--font-inter);
+  --font-body: var(--font-rajdhani);
 }
-@layer{
-  .container{
-    @apply mx-auto
+@layer base{
+  
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-secondary);
+    overflow-x: hidden;
   }
-  .section_title{
-    @apply font-primary text-white font-semibold text-3xl
+
+  .font-display {
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  .font-body {
+    font-family: var(--font-rajdhani);
+  }
+}
+
+@layer utilities {
+  .valorant-card-clip {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+  }
+
+  .valorant-cut-br {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 90% 100%, 0 100%);
+  }
+
+  .valorant-cut-tl {
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 15%);
+  }
+
+  .valorant-slant {
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+  }
+
+  .ability-card {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+  }
+
+  .ribbon-slant {
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+  }
+
+  .diagonal-stripes {
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,70,85,0.05) 10px, rgba(255,70,85,0.05) 20px);
+  }
+
+  .grid-pattern {
+    background-image: radial-gradient(rgb(from var(--val-red) r g b / 0.08) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .glitch-bg {
+    background-image:
+      linear-gradient(
+        45deg,
+        transparent 48%,
+        rgb(from var(--val-red) r g b / 0.05) 50%,
+        transparent 52%
+      ),
+      linear-gradient(
+        -45deg,
+        transparent 48%,
+        rgb(from var(--val-red) r g b / 0.03) 50%,
+        transparent 52%
+      );
+    background-size: 60px 60px;
+  }
+
+  .glow-red {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .glow-red:hover {
+    box-shadow: 0 0 20px rgb(from var(--val-red) r g b / 0.4);
+    border-color: var(--val-red);
+  }
+
+  .text-glow-red {
+    text-shadow: 0 0 10px rgb(from var(--val-red) r g b / 0.6);
+  }
+
+  .mission-log-active {
+    border-left: 4px solid var(--val-red);
+    background: rgb(from var(--val-red) r g b / 0.05);
+  }
+
+  .scanline {
+    background: linear-gradient(
+      to bottom,
+      rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 2px;
+    pointer-events: none;
   }
 }
