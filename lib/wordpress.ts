@@ -32,6 +32,7 @@ export async function getPost(slug: string) {
   const data = await res.json();
 
   return data.length > 0 ? data[0] : null;
+
 }
 
 // all slills
@@ -47,6 +48,12 @@ export async function getSkills() {
   return res.json()
 }
 
+// singel skill
+export async function getSkill(id: number) {
+  const res = await fetch(`${API_URL}/skill/${id}`);
+  return res.json();
+}
+
 // all missons
 export async function getMissions() {
   const res = await fetch(
@@ -59,6 +66,21 @@ export async function getMissions() {
   );
 
   return res.json();
+}
+
+// single mission
+export async function getMission(slug: string) {
+  const res = await fetch(
+    `${API_URL}/mission?slug=${slug}&_embed`,
+    {
+      next: {
+        revalidate: 60,
+      },
+    }
+  );
+
+  const data = await res.json();
+  return data.length > 0 ? data[0] : null;
 }
 
 
@@ -81,6 +103,20 @@ export async function getMissionCategories() {
 export async function getMissionsByCategory(categoryId: number) {
   const res = await fetch(
     `${API_URL}/mission?mission_category=${categoryId}&_embed`,
+    {
+      next: {
+        revalidate: 60,
+      },
+    }
+  );
+
+  return res.json();
+}
+
+// All Experiences
+export async function getExperiences() {
+  const res = await fetch(
+    `${API_URL}/experience?_embed`,
     {
       next: {
         revalidate: 60,

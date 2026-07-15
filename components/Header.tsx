@@ -5,8 +5,8 @@ import { Menu, X } from "lucide-react";
 
 const menuLinks = [
   { label: "HOME", path: "/" },
-  { label: "ARSENAL", path: "/missions" },
-  { label: "DOSSIER", path: "/blog" },
+  { label: "ARSENAL", path: "/mission" },
+  { label: "DOSSIER", path: "/dossier" },
   { label: "COMMS", path: "/comms" },
 ];
 

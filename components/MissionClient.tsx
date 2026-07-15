@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import MissionCategories from "./MissionCategories";
-import MissionCard from "./MissionCard";
+import MissionList from "./MissionList";
 
 export default function MissionClient({
     categories,
@@ -43,20 +43,37 @@ export default function MissionClient({
                 ))}
 
             </aside>
+            <section className="flex-1 px-4 pt-4 overflow-y-auto">
+                <div className="mb-8">
+                    <div className="flex items-baseline gap-2">
+                        <h1 className="font-display text-4xl font-bold italic text-primary">Arsenal</h1>
+                        <span className="font-display text-xs font-bold opacity-30 italic uppercase tracking-tighter">
+                            Collection / 2025
+                        </span>
+                    </div>
+                    <div className="h-[2px] w-full bg-gradient-to-r from-primary to-transparent mt-2" />
+                </div>
 
-            <section className="flex-1 px-4 pt-4">
-
-                <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
-
+                <div className="space-y-6 md:grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
                     {filteredMissions.map((mission: any) => (
-                        <MissionCard
+                        <MissionList
                             key={mission.id}
                             {...mission}
                         />
                     ))}
-
                 </div>
 
+                <div className="h-12" />
+
+                {/* Footer */}
+                {/* <footer className="bg-val-charcoal text-foreground/40 p-8 text-center border-t border-border/20">
+                    <div className="font-display text-lg tracking-[0.2em] mb-2 uppercase opacity-60">
+                        Strategic Archive // Agent Hasib
+                    </div>
+                    <p className="font-display text-[9px] uppercase tracking-widest">
+                        Encryption Key: [REDACTED] • Tactical Portfolio v.1.0.4
+                    </p>
+                </footer> */}
             </section>
 
         </main>

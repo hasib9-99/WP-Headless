@@ -16,7 +16,7 @@ export default function SkillCard({
     return (
         <div
             key={title.rendered}
-            className="relative border border-border p-4 aspect-square flex flex-col items-center justify-center group hover:border-primary transition-colors"
+            className="bg-card p-4 border border-border flex flex-col items-center gap-3 relative overflow-hidden group hover:border-primary transition-colors"
         >
             <div className="absolute top-1 left-1 bg-primary text-primary-foreground font-display text-[9px] px-1.5 py-0.5">
                 {acf.key}

@@ -1,9 +1,7 @@
 import { getPost } from "@/lib/wordpress";
 
 
-export default async function SingleBlog({
-    params,
-}: {
+export default async function SingleBlog({params,}: {
     params: Promise<{
         slug: string;
     }>;
